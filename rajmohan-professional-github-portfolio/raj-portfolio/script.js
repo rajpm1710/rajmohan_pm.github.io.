@@ -1,0 +1,13 @@
+const menu = document.getElementById('menu');
+const navlinks = document.getElementById('navlinks');
+menu.addEventListener('click', () => {
+  const open = navlinks.classList.toggle('open');
+  menu.setAttribute('aria-expanded', String(open));
+  menu.textContent = open ? '✕' : '☰';
+});
+navlinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+  navlinks.classList.remove('open');
+  menu.setAttribute('aria-expanded', 'false');
+  menu.textContent = '☰';
+}));
+document.getElementById('year').textContent = new Date().getFullYear();
